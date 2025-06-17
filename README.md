@@ -1,1 +1,3 @@
-![Status](https://img.shields.io/badge/Status-Rebasing%20life%20choices-blueviolet?style=flat-square&logo=git&logoColor=white)
+<!--STATUS_BADGE_START-->
+![Status](https://img.shields.io/badge/Status-Initializing-blueviolet?style=flat-square&logo=git&logoColor=white)
+<!--STATUS_BADGE_END-->
