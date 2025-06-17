@@ -1,1 +1,1 @@
-![Status](https://img.shields.io/badge/status-Working%20tree%20not%20clean,%20neither%20is%20my%20desk.-blueviolet)
+![Status](https://img.shields.io/badge/Status-Rebasing%20life%20choices-blueviolet?style=flat-square&logo=git&logoColor=white)
