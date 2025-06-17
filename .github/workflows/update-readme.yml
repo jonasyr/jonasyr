@@ -1,22 +1,20 @@
 on:
   push:
-    branches: [main]        # ← runs on your first push
+    branches: [main]
   schedule:
-    - cron: '0 */6 * * *'   # rotates every 6 hours
-  workflow_dispatch:        # manual trigger if you want
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           persist-credentials: true
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -30,7 +28,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git diff --quiet && exit 0       # no changes → exit cleanly
+          git diff --quiet && exit 0
           git commit -m "chore: update status badge"
           git push
-
