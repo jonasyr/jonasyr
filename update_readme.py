@@ -1,21 +1,33 @@
 import random
+import urllib.parse
 
-statuses = [
-    "Currently in a detached HEAD state.",
-    "Rebasing life choices.",
-    "Working tree not clean, neither is my desk.",
-    "Checking out of reality."
-]
+# Read statuses
+with open("statuses.txt", "r") as f:
+    statuses = [line.strip() for line in f if line.strip()]
+status = random.choice(statuses)
 
-badge_template = "![Status](https://img.shields.io/badge/status-{}-blueviolet)"
+# URL-encode the status message
+encoded_status = urllib.parse.quote(status)
 
-with open("README.md", "r") as file:
-    lines = file.readlines()
+# Construct the badge URL
+badge_url = f"https://img.shields.io/badge/Status-{encoded_status}-blueviolet?style=flat-square&logo=git&logoColor=white"
 
-with open("README.md", "w") as file:
+# Read the README
+with open("README.md", "r") as f:
+    lines = f.readlines()
+
+# Update the badge line
+with open("README.md", "w") as f:
+    in_badge_section = False
     for line in lines:
-        if line.startswith("![Status]"):
-            new_status = random.choice(statuses).replace(" ", "%20").replace(",", "%2C")
-            file.write(badge_template.format(new_status) + "\n")
-        else:
-            file.write(line)
+        if "<!--STATUS_BADGE_START-->" in line:
+            f.write(line)
+            in_badge_section = True
+            continue
+        if "<!--STATUS_BADGE_END-->" in line:
+            f.write(f"![Status]({badge_url})\n")
+            f.write(line)
+            in_badge_section = False
+            continue
+        if not in_badge_section:
+            f.write(line)
