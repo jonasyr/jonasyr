@@ -37,3 +37,7 @@ with open("README.md", "w") as f:
             f.write(new_line + "\n")
         else:
             f.write(line)
+
+print(f"Chosen status: {choice}")
+print(f"New badge line: {new_line}")
+
