@@ -8,17 +8,27 @@ statuses = [
     "Checking out of reality."
 ]
 
-badge_prefix = "https://img.shields.io/static/v1?label=Status&labelColor=EDEDED&color=8250DF&style=flat&message="
+base = (
+    "https://img.shields.io/static/v1"
+    "?label=Status"
+    "&labelColor=24292F"
+    "&color=8250DF"
+    "&logo=github"
+    "&logoColor=white"
+    "&style=flat"
+    "&message="
+)
+
+choice = random.choice(statuses)
+badge_url = base + urllib.parse.quote(choice, safe='')
+new_line = f'<img alt="Status" src="{badge_url}" />'
 
 with open("README.md") as f:
     lines = f.readlines()
 
-new_message = urllib.parse.quote(random.choice(statuses), safe='')
-new_badge = f"![Status]({badge_prefix}{new_message})"
-
 with open("README.md", "w") as f:
     for line in lines:
-        if line.startswith("<img") or line.startswith("![Status]"):
-            f.write(new_badge + "\n")
+        if line.strip().startswith("<img alt=\"Status\""):
+            f.write(new_line + "\n")
         else:
             f.write(line)
