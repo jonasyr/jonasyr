@@ -1,12 +1,12 @@
-name: Update Status Badge
-
 on:
+  push:
+    branches: [main]        # ← runs on your first push
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
-  workflow_dispatch:
+    - cron: '0 */6 * * *'   # rotates every 6 hours
+  workflow_dispatch:        # manual trigger if you want
 
 jobs:
-  update-status:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,13 +14,13 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - name: Run update script
+      - name: Rotate status badge
         run: |
           python3 update_readme.py
-      - name: Commit and push changes
+      - name: Commit & push
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git commit -m 'Update status badge' || echo "No changes to commit"
+          git commit -m "chore: update status badge" || echo "No changes"
           git push
