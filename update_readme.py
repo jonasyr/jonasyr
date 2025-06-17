@@ -33,8 +33,11 @@ with open("README.md") as f:
 
 with open("README.md", "w") as f:
     for line in lines:
-        if line.strip().startswith("<img alt=\"Status\""):
-            f.write(new_line + "\n")
+        if line.strip().startswith('<img alt="Status"') \
+           or line.strip().startswith('![Status]('):
+            # build a Markdown-style badge instead of <img>
+            new_md = f'![Status]({badge_url})'
+            f.write(new_md + "\n")
         else:
             f.write(line)
 
