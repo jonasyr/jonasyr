@@ -28,6 +28,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git diff --quiet && exit 0
+          git diff --cached --quiet && exit 0    # ← use --cached to compare HEAD vs index
           git commit -m "chore: update status badge"
           git push
+
