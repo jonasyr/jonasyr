@@ -5,7 +5,12 @@ statuses = [
     "Currently in a detached HEAD state.",
     "Rebasing life choices.",
     "Working tree not clean, neither is my desk.",
-    "Checking out of reality."
+    "Checking out of reality.",
+    "Commits are clean, but I’m not.",
+    "Forked beyond recognition.",
+    "Still resolving merge conflicts — in life.",
+    "On main, but barely functioning.",
+    "Staging my emotions for commit."
 ]
 
 base = (
