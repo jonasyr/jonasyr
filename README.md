@@ -1,1 +1,1 @@
-<img alt="Status" src="https://img.shields.io/static/v1?label=Status&labelColor=24292F&color=8250DF&logo=github&logoColor=white&style=flat&message=On%20main%2C%20but%20barely%20functioning." />
+<img alt="Status" src="https://img.shields.io/static/v1?label=Status&labelColor=24292F&color=8250DF&logo=github&logoColor=white&style=flat&message=Forked%20beyond%20recognition." />
