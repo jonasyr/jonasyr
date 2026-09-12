@@ -1,1 +1,1 @@
-<img alt="Status" src="https://img.shields.io/static/v1?label=Status&labelColor=24292F&color=8250DF&logo=github&logoColor=white&style=flat&message=Checking%20out%20of%20reality." />
+<img alt="Status" src="https://img.shields.io/static/v1?label=Status&labelColor=24292F&color=8250DF&logo=github&logoColor=white&style=flat&message=Currently%20in%20a%20detached%20HEAD%20state." />
